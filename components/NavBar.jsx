@@ -57,7 +57,7 @@ const Navbar = () => {
                 height={40}
                 style={{
                   width: "auto",
-                  height: "40px",
+                  height: "auto",
                   opacity: 1,
                 }}
                 priority
@@ -72,20 +72,34 @@ const Navbar = () => {
               <div className="flex space-x-2">
                 <Link
                   href="/"
-                  className={`${pathname === "/" ? "bg-gray-900 text-white" : "text-white hover:bg-gray-900 hover:text-white"} rounded-md px-3 py-2`}
+                  className={`${
+                    pathname === "/"
+                      ? "bg-gray-900 text-white"
+                      : "text-white hover:bg-gray-900 hover:text-white"
+                  } rounded-md px-3 py-2`}
                 >
                   Home
                 </Link>
+
                 <Link
                   href="/properties"
-                  className={`${pathname === "/properties" ? "bg-gray-900 text-white" : "text-white hover:bg-gray-900 hover:text-white"} rounded-md px-3 py-2`}
+                  className={`${
+                    pathname === "/properties"
+                      ? "bg-gray-900 text-white"
+                      : "text-white hover:bg-gray-900 hover:text-white"
+                  } rounded-md px-3 py-2`}
                 >
                   Properties
                 </Link>
+
                 {isLoggedIn && (
                   <Link
                     href="/properties/add"
-                    className={`${pathname === "/properties/add" ? "bg-gray-900 text-white" : "text-white hover:bg-gray-900 hover:text-white"} rounded-md px-3 py-2`}
+                    className={`${
+                      pathname === "/properties/add"
+                        ? "bg-gray-900 text-white"
+                        : "text-white hover:bg-gray-900 hover:text-white"
+                    } rounded-md px-3 py-2`}
                   >
                     Add Property
                   </Link>
@@ -130,6 +144,7 @@ const Navbar = () => {
                     />
                   </svg>
                 </button>
+
                 <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
                   2
                 </span>
@@ -154,6 +169,8 @@ const Navbar = () => {
                       className="h-8 w-8 rounded-full"
                       src={profileDefault}
                       alt="Profile"
+                      width={32}
+                      height={32}
                     />
                   </button>
                 </div>
@@ -166,32 +183,34 @@ const Navbar = () => {
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="user-menu-button"
-                    tabIndex="-1"
+                    tabIndex={-1}
                   >
                     <Link
                       href="/profile"
                       className="block px-4 py-2 text-sm text-gray-700"
                       role="menuitem"
-                      tabIndex="-1"
+                      tabIndex={-1}
                       id="user-menu-item-0"
                       onClick={() => setIsProfileDropdownOpen(false)}
                     >
                       Your Profile
                     </Link>
+
                     <Link
                       href="/properties/saved"
                       className="block px-4 py-2 text-sm text-gray-700"
                       role="menuitem"
-                      tabIndex="-1"
+                      tabIndex={-1}
                       id="user-menu-item-1"
                       onClick={() => setIsProfileDropdownOpen(false)}
                     >
                       Saved Properties
                     </Link>
+
                     <button
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700"
                       role="menuitem"
-                      tabIndex="-1"
+                      tabIndex={-1}
                       id="user-menu-item-2"
                       onClick={() => setIsProfileDropdownOpen(false)}
                     >
@@ -211,29 +230,44 @@ const Navbar = () => {
           <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
               href="/"
-              className={`${pathname === "/" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"} block rounded-md px-3 py-2 text-base font-medium`}
+              className={`${
+                pathname === "/"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
+              } block rounded-md px-3 py-2 text-base font-medium`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
+
             <Link
               href="/properties"
-              className={`${pathname === "/properties" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"} block rounded-md px-3 py-2 text-base font-medium`}
+              className={`${
+                pathname === "/properties"
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white"
+              } block rounded-md px-3 py-2 text-base font-medium`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Properties
             </Link>
+
             {isLoggedIn && (
               <Link
                 href="/properties/add"
-                className={`${pathname === "/properties/add" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"} block rounded-md px-3 py-2 text-base font-medium`}
+                className={`${
+                  pathname === "/properties/add"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                } block rounded-md px-3 py-2 text-base font-medium`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Add Property
               </Link>
             )}
+
             {!isLoggedIn && (
-              <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4 w-50%">
+              <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4 w-1/2">
                 <FaGoogle className="text-white mr-2" />
                 <span>Login or Register</span>
               </button>
