@@ -1,9 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-
-// Using Next.js path alias to point directly to your app assets folder
-const logo = "/images/white-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,6 +12,7 @@ const Footer = () => {
             alt="Property Pulse"
             width={60}
             height={40}
+            style={{ width: "auto", height: "auto" }}
           />
         </div>
 
